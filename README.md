@@ -1,204 +1,166 @@
-# Typescript
+# Corso JavaScript 
 
-Raccolta di **115 script didattici** in TypeScript moderno (target ES2022, `strict`).
-Ogni file è autonomo, commentato in italiano e pensato per essere **verificato con `tsc --noEmit`** (non produce output runtime, ma type-check).
-Il filo conduttore degli esempi è un **gestionale aziendale (ERP Polyuretech)**: `Dipendente`, `Timbratura`, `Reparto`, `Turno`, badge `UP-001`, turni `P4`/`P2`/`STD`, orari `"HH:MM"`.
+Raccolta di script didattici in JavaScript moderno (ES2020+), eseguibili con **Node.js**.
+Ogni file è autonomo, commentato in italiano, con `console.log` che mostra l'**output atteso**.
+Il filo conduttore degli esempi è un **gestionale aziendale (ERP)**: dipendenti, timbrature, reparti, report.
 
-> **Come verificare un file:** `npx tsc --noEmit NN_nome_file.ts`
-> **Verificare tutto il progetto:** `npx tsc` (usa il [tsconfig.json](tsconfig.json) — `strict: true`, `noEmit: true`)
+> **Come eseguire:** `node NN_nome_file.js`
+> **Test (file 124):** `node --test 124_JS_ADV_Node_Testing.js`
 
 ---
 
-## 🟢 PARTE 1 — Fondamenti dei tipi (file 001–030)
+## 🟢 PARTE 1 — Fondamenti (file 1–47)
 
-Il sistema di tipi di base: come TS controlla il codice prima dell'esecuzione.
+I mattoni del linguaggio. Riassunto per gruppi:
 
 | File | Argomento | In una riga |
 |------|-----------|-------------|
-| 001–003 | Introduzione, `tsconfig`, compilatore (`tsc`/`--watch`/`strict`) | Cos'è TS e come si compila |
-| 004–007 | Tipi base, `any`/`unknown`/`never`, array/tuple, oggetti | I mattoni del type system |
-| 008–014 | Type alias, interface, `type` vs `interface`, union, intersection, literal, enum | Modellare le forme dei dati |
-| 015–019 | Funzioni, parametri opzionali/default, rest, call signatures, `void`/`never` | Tipizzare le funzioni |
-| 020–026 | Inferenza, type assertion, narrowing, truthiness, discriminated union, `null`/`undefined`, optional chaining | Come TS restringe i tipi |
-| 027–030 | `readonly`, index signature, `keyof`, `typeof` | Tipi da chiavi e strutture esistenti |
+| 1–6 | Introduzione, dove scrivere JS, output, statements, sintassi, commenti | Come si scrive ed esegue JavaScript |
+| 7–9 | Variabili, `let`/`const`, tipi di dato | `var` vs `let`/`const`, primitivi vs oggetti |
+| 10–13 | Operatori, aritmetica, assegnazione, confronto | `=== vs ==`, precedenze, operatori |
+| 14–18 | Condizioni, `switch`, cicli `for`/`while`, `break`/`continue` | Controllo del flusso |
+| 19–22 | Stringhe, metodi, ricerca, template literals | Manipolazione testo, `` `${...}` `` |
+| 23–26 | Numeri, metodi, `Math`, booleani | Calcoli e valori logici |
+| 27–34 | Funzioni, parametri, arrow, closure, callback, HOF, ricorsione, IIFE | Cuore della logica riutilizzabile |
+| 35–41 | Oggetti, metodi, destructuring, spread, `this`, optional chaining, JSON | Strutture dati chiave |
+| 42–47 | Scope, hoisting, strict mode, date e formattazione | Regole del linguaggio e tempo |
 
 ---
 
-## 🟡 PARTE 2 — Classi e Generics (file 031–048)
+## 🟡 PARTE 2 — Strutture dati e array (file 48–70)
 
 | File | Argomento | In una riga |
 |------|-----------|-------------|
-| 031–040 | Classi, access modifier, `readonly`, getter/setter, `static`, classi astratte, ereditarietà, `implements`, parameter properties, `this` types | OOP tipizzata |
-| 041–048 | Generics: intro, funzioni, constraint, classi, interfacce, default type param, `keyof` con generics, indexed access | Codice riutilizzabile e type-safe |
+| 48–49 | Array e metodi | Creazione e operazioni base |
+| 50–58 | `map`, `filter`, `reduce`, `find`, `sort`, `some`/`every`, `flatMap`, spread, destructuring | I metodi funzionali che userai ogni giorno |
+| 59–64 | `Set`, `Map`, `WeakMap`/`WeakSet`, iterables, generators, `Symbol` | Strutture avanzate e iterazione |
+| 65–70 | Conversione tipi, RegExp, errori, error handling, debugging | Robustezza e strumenti |
 
 ---
 
-## 🟠 PARTE 3 — Moduli e librerie standard (file 049–060)
+## 🔵 PARTE 3 — DOM e Browser (file 71–78)
 
-| File | Argomento | In una riga |
-|------|-----------|-------------|
-| 049–053 | Moduli, namespace, `.d.ts`, ambient declaration, `import type` | Organizzare e dichiarare i tipi |
-| 054–060 | JSON tipizzato, array tipizzati, iterator/generator, error handling, `async`/`await`, `Date`, RegExp | Standard library con i tipi |
+| File | Argomento |
+|------|-----------|
+| 71–76 | DOM: intro, selezione, manipolazione, creazione elementi, eventi, form |
+| 77–78 | BOM (`window`), timer (`setTimeout`/`setInterval`) |
 
----
-
-## 🔴 PARTE 4 — TypeScript avanzato (file 061–100)
-
-Il cuore "Advanced": type-level programming e pattern professionali.
-
-| File | Argomento | In una riga |
-|------|-----------|-------------|
-| 061–065 | Generics avanzati, conditional types, `infer`, mapped types, template literal types | Costruire tipi a partire da altri tipi |
-| 066–069 | Utility types (built-in e ricorsivi), branded/nominal types | `Partial`/`Pick`/`Record`… e tipi "nominali" |
-| 070–073 | Type guard/predicates, assertion functions, varianza, overload | Restringere e firmare con precisione |
-| 074–080 | Decorator (+ metadata), mixin, module augmentation, declaration merging, `satisfies`, `const` assertion | Meta-programmazione sui tipi |
-| 081–085 | Discriminated union avanzate, exhaustiveness check, generic factory, builder, `Result`/`Either` | Pattern di modellazione robusti |
-| 086–093 | FP tipizzata, immutabilità, async patterns, event emitter, state machine, DI, repository, DTO mapping | Architettura type-safe |
-| 094–100 | Validation schema, API client type-safe, flag `strict`, performance, pitfall comuni, design pattern, combo generics+`keyof`+mapped | Sintesi dei concetti avanzati |
+> ⚠️ Questi file riguardano il **browser**: alcune API (`document`, `window`) non esistono in Node puro.
 
 ---
 
-## 🟣 PARTE 5 — Ecosistema e mondo reale (file 101–115)
+## 🔴 PARTE 4 — JavaScript AVANZATO (file 79–114)
 
-| File | Argomento | In una riga |
-|------|-----------|-------------|
-| 101–105 | Tipi React, Node/Express, Prisma, env config tipizzato, testing dei tipi | TS nei framework reali |
-| 106–110 | Migrazione JS→TS, JSDoc in `.js`, type-level programming, utility types "a mano", generics ricorsivi | Portare TS su codice esistente |
-| 111–114 | `unknown`, narrowing avanzato, classi d'errore tipizzate, validazione input | Robustezza in produzione |
-| 115 | **End-to-end ERP** | Mini-dominio che unisce union, branded id, repository, service, DTO e state machine |
+Qui si entra nel serio. Dettaglio per file:
 
----
+### Funzioni e closure di alto livello
+- **79 · ADV Functions** — Currying, partial application, memoization, `compose`/`pipe`. Pattern per pipeline di trasformazione.
+- **80 · ADV Closures** — Variabili private, module pattern, factory configurabili, contatori isolati.
+- **81 · ADV This/Bind** — `call`, `apply`, `bind`; come `this` cambia nei vari contesti (il tranello classico di JS).
 
-## 🗂️ Indice completo dei file
+### Oggetti, prototipi, classi
+- **82 · ADV Prototypes** — L'ereditarietà *vera* di JS: catena `[[Prototype]]`, `__proto__`, `Object.create`.
+- **83 · ADV Classes** — Sintassi `class`, costruttori, metodi, `static`.
+- **84 · ADV Class Inheritance** — `extends`, `super`, override dei metodi.
+- **85 · ADV Class Private** — Campi privati `#campo`, incapsulamento reale.
+- **98 · ADV Getters/Setters** — Proprietà calcolate, validazione in lettura/scrittura.
+- **99 · ADV Descriptors** — `Object.defineProperty`: `writable`, `enumerable`, `configurable`.
 
-<details>
-<summary>Espandi tutti i 115 file</summary>
+### Asincronia (fondamentale)
+- **86 · ADV Async Promises** — I 3 stati (pending/fulfilled/rejected), `then`/`catch`, `Promise.all`/`race`/`allSettled`.
+- **87 · ADV Async/Await** — Sintassi `async`/`await`, `try/catch` asincrono.
+- **88 · ADV Async Patterns** — Sequenziale vs parallelo, gestione errori, orchestrazione.
+- **89 · ADV Async Iteration** — `for await...of`, async generators.
+- **108 · ADV Event Loop** — 🌟 Call stack, **microtask** (Promise) vs **macrotask** (setTimeout), l'ordine di esecuzione.
 
-| # | File | Sezione |
-|---|------|---------|
-| 001 | `001_TS_Introduction.ts` | Fondamenti |
-| 002 | `002_TS_Setup_tsconfig.ts` | Fondamenti |
-| 003 | `003_TS_Compiler_tsc_watch_strict.ts` | Fondamenti |
-| 004 | `004_TS_Basic_Types.ts` | Fondamenti |
-| 005 | `005_TS_any_unknown_never.ts` | Fondamenti |
-| 006 | `006_TS_Arrays_Tuples.ts` | Fondamenti |
-| 007 | `007_TS_Objects.ts` | Fondamenti |
-| 008 | `008_TS_Type_Aliases.ts` | Fondamenti |
-| 009 | `009_TS_Interfaces.ts` | Fondamenti |
-| 010 | `010_TS_Type_vs_Interface.ts` | Fondamenti |
-| 011 | `011_TS_Union_Types.ts` | Fondamenti |
-| 012 | `012_TS_Intersection_Types.ts` | Fondamenti |
-| 013 | `013_TS_Literal_Types.ts` | Fondamenti |
-| 014 | `014_TS_Enums.ts` | Fondamenti |
-| 015 | `015_TS_Functions.ts` | Fondamenti |
-| 016 | `016_TS_Optional_Default_Params.ts` | Fondamenti |
-| 017 | `017_TS_Rest_Params_Tuples.ts` | Fondamenti |
-| 018 | `018_TS_Function_Types_Call_Signatures.ts` | Fondamenti |
-| 019 | `019_TS_void_never_returns.ts` | Fondamenti |
-| 020 | `020_TS_Type_Inference.ts` | Fondamenti |
-| 021 | `021_TS_Type_Assertions.ts` | Fondamenti |
-| 022 | `022_TS_Type_Narrowing.ts` | Fondamenti |
-| 023 | `023_TS_Truthiness_Narrowing.ts` | Fondamenti |
-| 024 | `024_TS_Discriminated_Unions.ts` | Fondamenti |
-| 025 | `025_TS_null_undefined.ts` | Fondamenti |
-| 026 | `026_TS_Optional_Chaining_Nullish.ts` | Fondamenti |
-| 027 | `027_TS_readonly.ts` | Fondamenti |
-| 028 | `028_TS_Index_Signatures.ts` | Fondamenti |
-| 029 | `029_TS_keyof.ts` | Fondamenti |
-| 030 | `030_TS_typeof_operator.ts` | Fondamenti |
-| 031 | `031_TS_Classes.ts` | Classi & Generics |
-| 032 | `032_TS_Access_Modifiers.ts` | Classi & Generics |
-| 033 | `033_TS_readonly_fields.ts` | Classi & Generics |
-| 034 | `034_TS_Getters_Setters.ts` | Classi & Generics |
-| 035 | `035_TS_Static_Members.ts` | Classi & Generics |
-| 036 | `036_TS_Abstract_Classes.ts` | Classi & Generics |
-| 037 | `037_TS_Inheritance_super.ts` | Classi & Generics |
-| 038 | `038_TS_Implements_Interface.ts` | Classi & Generics |
-| 039 | `039_TS_Parameter_Properties.ts` | Classi & Generics |
-| 040 | `040_TS_this_types.ts` | Classi & Generics |
-| 041 | `041_TS_Generics_Intro.ts` | Classi & Generics |
-| 042 | `042_TS_Generic_Functions.ts` | Classi & Generics |
-| 043 | `043_TS_Generic_Constraints.ts` | Classi & Generics |
-| 044 | `044_TS_Generic_Classes.ts` | Classi & Generics |
-| 045 | `045_TS_Generic_Interfaces.ts` | Classi & Generics |
-| 046 | `046_TS_Default_Type_Params.ts` | Classi & Generics |
-| 047 | `047_TS_keyof_Generics.ts` | Classi & Generics |
-| 048 | `048_TS_Indexed_Access_Types.ts` | Classi & Generics |
-| 049 | `049_TS_Modules.ts` | Moduli & stdlib |
-| 050 | `050_TS_Namespaces.ts` | Moduli & stdlib |
-| 051 | `051_TS_Declaration_Files.ts` | Moduli & stdlib |
-| 052 | `052_TS_Ambient_Declarations.ts` | Moduli & stdlib |
-| 053 | `053_TS_Type_Only_Imports.ts` | Moduli & stdlib |
-| 054 | `054_TS_Working_With_JSON.ts` | Moduli & stdlib |
-| 055 | `055_TS_Arrays_Methods_Typed.ts` | Moduli & stdlib |
-| 056 | `056_TS_Iterators_Generators.ts` | Moduli & stdlib |
-| 057 | `057_TS_Error_Handling_Typed.ts` | Moduli & stdlib |
-| 058 | `058_TS_Async_Await_Typed.ts` | Moduli & stdlib |
-| 059 | `059_TS_Working_With_Date.ts` | Moduli & stdlib |
-| 060 | `060_TS_Regex_Typed.ts` | Moduli & stdlib |
-| 061 | `061_TS_ADV_Generics_Deep.ts` | Avanzato |
-| 062 | `062_TS_ADV_Conditional_Types.ts` | Avanzato |
-| 063 | `063_TS_ADV_infer.ts` | Avanzato |
-| 064 | `064_TS_ADV_Mapped_Types.ts` | Avanzato |
-| 065 | `065_TS_ADV_Template_Literal_Types.ts` | Avanzato |
-| 066 | `066_TS_ADV_Utility_Types_1.ts` | Avanzato |
-| 067 | `067_TS_ADV_Utility_Types_2.ts` | Avanzato |
-| 068 | `068_TS_ADV_Recursive_Types.ts` | Avanzato |
-| 069 | `069_TS_ADV_Branded_Nominal.ts` | Avanzato |
-| 070 | `070_TS_ADV_Type_Guards_Predicates.ts` | Avanzato |
-| 071 | `071_TS_ADV_Assertion_Functions.ts` | Avanzato |
-| 072 | `072_TS_ADV_Variance.ts` | Avanzato |
-| 073 | `073_TS_ADV_Overloads.ts` | Avanzato |
-| 074 | `074_TS_ADV_Decorators.ts` | Avanzato |
-| 075 | `075_TS_ADV_Decorator_Metadata.ts` | Avanzato |
-| 076 | `076_TS_ADV_Mixins.ts` | Avanzato |
-| 077 | `077_TS_ADV_Module_Augmentation.ts` | Avanzato |
-| 078 | `078_TS_ADV_Declaration_Merging.ts` | Avanzato |
-| 079 | `079_TS_ADV_satisfies.ts` | Avanzato |
-| 080 | `080_TS_ADV_const_assertions.ts` | Avanzato |
-| 081 | `081_TS_ADV_Discriminated_Unions_Adv.ts` | Avanzato |
-| 082 | `082_TS_ADV_Exhaustiveness_Check.ts` | Avanzato |
-| 083 | `083_TS_ADV_Generic_Factories.ts` | Avanzato |
-| 084 | `084_TS_ADV_Builder_Pattern.ts` | Avanzato |
-| 085 | `085_TS_ADV_Result_Either.ts` | Avanzato |
-| 086 | `086_TS_ADV_FP_Typed.ts` | Avanzato |
-| 087 | `087_TS_ADV_Immutability.ts` | Avanzato |
-| 088 | `088_TS_ADV_Async_Patterns.ts` | Avanzato |
-| 089 | `089_TS_ADV_Event_Emitter.ts` | Avanzato |
-| 090 | `090_TS_ADV_State_Machine.ts` | Avanzato |
-| 091 | `091_TS_ADV_Dependency_Injection.ts` | Avanzato |
-| 092 | `092_TS_ADV_Repository_Pattern.ts` | Avanzato |
-| 093 | `093_TS_ADV_DTO_Mapping.ts` | Avanzato |
-| 094 | `094_TS_ADV_Validation_Schema.ts` | Avanzato |
-| 095 | `095_TS_ADV_Type_Safe_API_Client.ts` | Avanzato |
-| 096 | `096_TS_ADV_tsconfig_strict_flags.ts` | Avanzato |
-| 097 | `097_TS_ADV_Performance_Complexity.ts` | Avanzato |
-| 098 | `098_TS_ADV_Common_Pitfalls.ts` | Avanzato |
-| 099 | `099_TS_ADV_Design_Patterns.ts` | Avanzato |
-| 100 | `100_TS_ADV_Generics_keyof_Mapped_Combo.ts` | Avanzato |
-| 101 | `101_TS_React_Types.ts` | Ecosistema |
-| 102 | `102_TS_Node_Express.ts` | Ecosistema |
-| 103 | `103_TS_Prisma_Types.ts` | Ecosistema |
-| 104 | `104_TS_Typed_Env_Config.ts` | Ecosistema |
-| 105 | `105_TS_Testing_Types.ts` | Ecosistema |
-| 106 | `106_TS_Migrating_JS_TS.ts` | Ecosistema |
-| 107 | `107_TS_JSDoc_in_JS.ts` | Ecosistema |
-| 108 | `108_TS_Type_Level_Programming.ts` | Ecosistema |
-| 109 | `109_TS_Utility_Types_Manual.ts` | Ecosistema |
-| 110 | `110_TS_Recursive_Generics_Adv.ts` | Ecosistema |
-| 111 | `111_TS_Working_With_unknown.ts` | Ecosistema |
-| 112 | `112_TS_Narrowing_Advanced.ts` | Ecosistema |
-| 113 | `113_TS_Error_Classes_Typed.ts` | Ecosistema |
-| 114 | `114_TS_Input_Validation_Typed.ts` | Ecosistema |
-| 115 | `115_TS_End_To_End_ERP.ts` | Ecosistema |
+### Moduli e organizzazione
+- **90 · ADV Modules** — `import`/`export`, named vs default.
+- **91 · ADV Modules Patterns** — Barrel files, singleton, incapsulamento a modulo.
 
-</details>
+### Programmazione funzionale e immutabilità
+- **92 · ADV Destructuring Deep** — Nested, default, alias, rest nei parametri.
+- **93 · ADV Spread/Rest Deep** — Copie, merge, argomenti variabili.
+- **94 · ADV Immutability** — Copie invece di mutazioni (base di React/Redux), `Object.freeze`.
+- **95 · ADV FP** — Pure functions, composizione, currying, stile point-free.
+
+### Meta-programmazione
+- **96 · ADV Proxy** — Intercettare operazioni su oggetti (trap `get`/`set`/`has`...).
+- **97 · ADV Reflect** — API companion di Proxy per operazioni di default.
+
+### Performance ed errori pro
+- **109 · ADV Performance** — Misurare, ottimizzare, evitare colli di bottiglia.
+- **110 · ADV Design Patterns** — Pattern creazionali/strutturali idiomatici in JS.
+- **113 · ADV Error Handling Pro** — Custom Error classes (`status`, `code`), pattern **Result/Either**, retry con backoff.
+- **114 · ADV Validation** — Guard functions, type guards, schema validation manuale.
+
+### TypeScript e Web API
+- **111–112 · ADV TS** — Basics e Generics di TypeScript.
+- **100–107 · ADV Web** — TypedArrays, DOM navigation, `fetch`, Storage, AJAX, JSON deep, Canvas.
+- **115 · Examples Practical** — Caso end-to-end: calcolo ore da timbrature, badge, report per reparto.
 
 ---
 
-## ℹ️ Note
+## ⭐ PARTE 5 — Approfondimenti avanzati recenti (file 116–125)
 
-- **Convenzione nomi:** `NNN_TS_Argomento.ts` (numero progressivo + prefisso `TS` + tema). Il prefisso `ADV_` indica la sezione avanzata.
-- **Dominio esempi:** ERP Polyuretech — gli stessi tipi (`Dipendente`, `Timbratura`, `Reparto`…) ricorrono in tutto il corso per mostrare i concetti su un caso reale.
-- **Compilazione:** i file usano `strict: true` e `noEmit: true`; servono a essere **type-checkati**, non eseguiti.
-- Vedi anche il [Corso JavaScript](../Javascript/README.md) come base propedeutica.
+Gli script più recenti, con **casi reali da gestionale** e verificati (girano su Node 24).
+
+### 116 · ADV State Machine 🔧
+Macchina a stati finiti (FSM) per il ciclo di vita di una **richiesta ferie** (`bozza → inviata → approvata/rifiutata → archiviata`).
+**Concetti:** mappa delle transizioni come unica fonte di verità · blocco delle transizioni illegali · closure per incapsulare lo stato · **audit trail immutabile** · dry-run funzionale per validare un percorso senza effetti.
+
+### 117 · ADV Event Emitter 📡
+Pattern **publish/subscribe** costruito da zero (come `events` di Node, `addEventListener` del DOM, Redux, RxJS).
+**Concetti:** `on`/`off`/`once`/`emit` · `on()` ritorna un *unsubscribe* (closure) · un listener che lancia **non blocca gli altri** · `Map<string, Set<fn>>` per evitare duplicati · **disaccoppiamento** produttore/consumatore.
+
+### 118 · ADV Async Concurrency ⚡
+Controllo della concorrenza async per un **sync di massa** (es. 100 dipendenti verso un server con rate limit).
+**Concetti:** `Promise.all` (tutto-o-niente) vs **`allSettled`** (report completo) · **timeout** con `Promise.race` · **retry con backoff esponenziale** (20→40→80ms) · **pool di concorrenza** (max N richieste in parallelo con "operai").
+
+### 119 · ADV Pipeline Functional 🔗
+Pipeline di trasformazione dati in stile funzionale: da timbrature grezze a **report per reparto**.
+**Concetti:** `pipe`/`compose` · **currying** (`filterBy`, `groupBy` preconfigurati) · **pure functions** come mattoncini · immutabilità (spread/map) · `groupBy` con `reduce` · una pipeline è una funzione riusabile su qualsiasi dato.
+
+### 120 · ADV LRU Cache 🗃️
+Cache **Least Recently Used**: quando è piena, sfratta l'elemento usato meno di recente.
+**Concetti:** la `Map` **ricorda l'ordine di inserimento** (base del trucco) · "promuovere" = `delete` + `set` · la prima chiave è sempre la LRU · **memoizzazione** di funzioni costose (query DB) · statistiche `hitRate`.
+
+### 121 · ADV Node Core 🖥️
+I moduli fondamentali di **Node.js**: `fs`, `path`, `process`.
+**Concetti:** `process` (`version`, `platform`, `cwd`, **`argv`** per la CLI, **`env`** per la config) · `path` per percorsi **portabili** (Windows/Linux) · `fs` **sincrono** (blocca → solo per script) vs **`fs/promises`** (non blocca → per i server) · errori con `.code` (`ENOENT`) · codici di uscita (0 = ok).
+
+### 122 · ADV Node Streams 🌊
+**Stream**: elaborare dati a "pezzi" (chunk) a **memoria costante**, anche su file da GB.
+**Concetti:** perché lo streaming batte `readFile` su file enormi · **Buffer** (i byte grezzi, UTF-8) · `readline` + `for await` per leggere **CSV riga per riga** · **Transform** stream (modifica i dati in transito, `objectMode`) · `pipeline()` gestisce errori, chiusura e **backpressure**.
+
+### 123 · ADV Intl Formatting 🌍
+`Intl`: formattazione internazionale **nativa** (niente moment/date-fns).
+**Concetti:** `NumberFormat` per **euro** (`1.234,56 €`), percentuali, unità · `DateTimeFormat` per **date italiane** (7 luglio 2026, formato 24h) · `RelativeTimeFormat` ("ieri", "tra 2 ore") · **`Collator`** per ordinare testo con accenti come un umano · `ListFormat` ("Mario, Anna e Luca") · crea il formatter **una volta** e riusalo.
+
+### 124 · ADV Node Testing ✅
+Testing **nativo** con `node:test` e `node:assert` (zero librerie).
+**Concetti:** `test`/`describe`/`it` · `assert.equal` (usa `===`) vs **`assert.deepEqual`** (confronta il *contenuto*, non l'identità) · **`assert.throws`** per verificare che il codice fallisca quando deve · **`mock.fn`** per sostituire dipendenze e tracciare chiamate · `beforeEach` per stato pulito.
+> Lancialo con: `node --test 124_JS_ADV_Node_Testing.js`
+
+### 125 · ADV AbortController 🛑
+Annullare operazioni asincrone in modo pulito.
+**Concetti:** `AbortController` (telecomando) + `signal` (ricevitore) · l'operazione deve **ascoltare** il signal e liberare le risorse · `AbortError` come errore convenzionale · **`AbortSignal.timeout(ms)`** (auto-abort) · **`AbortSignal.any([...])`** (combina più signal) · pattern **search-as-you-type** (una nuova richiesta annulla la precedente) · stesso meccanismo di `fetch(url, { signal })`.
+
+---
+
+## 🧭 Percorso consigliato per l'avanzato
+
+Se vuoi consolidare il livello avanzato, un ordine sensato:
+
+1. **Asincronia** → 86 → 87 → 108 (event loop) → 118 (concorrenza) → 125 (abort)
+2. **Funzionale** → 79 → 95 → 119 (pipeline) → 94 (immutabilità)
+3. **OOP e meta** → 82 (prototypes) → 83–85 (classi) → 96–97 (proxy/reflect)
+4. **Backend Node** → 121 (core) → 122 (streams) → 123 (Intl) → 124 (testing)
+5. **Architettura** → 116 (state machine) → 117 (event emitter) → 120 (LRU cache) → 113 (error handling)
+
+---
+
+## 📌 Note
+
+- Tutti gli esempi sono **eseguibili** e verificati su **Node.js v24**.
+- Nessuna dipendenza esterna: solo JavaScript e moduli core di Node.
+- Dominio ricorrente: **gestionale/ERP** (dipendenti, timbrature, reparti) per esempi concreti.
