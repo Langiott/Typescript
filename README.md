@@ -2,7 +2,7 @@
 
 Raccolta di **115 script didattici** in TypeScript moderno (target ES2022, `strict`).
 Ogni file è autonomo, commentato in italiano e pensato per essere **verificato con `tsc --noEmit`** (non produce output runtime, ma type-check).
-Il filo conduttore degli esempi è un **gestionale aziendale (ERP Polyuretech)**: `Dipendente`, `Timbratura`, `Reparto`, `Turno`, badge `UP-001`, turni `P4`/`P2`/`STD`, orari `"HH:MM"`.
+Il filo conduttore degli esempi è un **gestionale aziendale**: `Dipendente`, `Timbratura`, `Reparto`, `Turno`, badge `UP-001`, turni `P4`/`P2`/`STD`, orari `"HH:MM"`.
 
 ---
 
