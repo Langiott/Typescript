@@ -1,166 +1,231 @@
-# Corso JavaScript 
+# JavaScript 
 
-Raccolta di script didattici in JavaScript moderno (ES2020+), eseguibili con **Node.js**.
+Raccolta di **126 script didattici** in JavaScript moderno (ES2020+), eseguibili con **Node.js**.
 Ogni file è autonomo, commentato in italiano, con `console.log` che mostra l'**output atteso**.
-Il filo conduttore degli esempi è un **gestionale aziendale (ERP)**: dipendenti, timbrature, reparti, report.
+Il filo conduttore degli esempi è un **gestionale aziendale (ERP Polyuretech)**: dipendenti, timbrature, reparti, turni, report.
 
-> **Come eseguire:** `node NN_nome_file.js`
-> **Test (file 124):** `node --test 124_JS_ADV_Node_Testing.js`
 
 ---
 
-## 🟢 PARTE 1 — Fondamenti (file 1–47)
+## 🟢 Parte 1 — Fondamenti (001–047)
 
-I mattoni del linguaggio. Riassunto per gruppi:
+I mattoni del linguaggio.
 
 | File | Argomento | In una riga |
 |------|-----------|-------------|
-| 1–6 | Introduzione, dove scrivere JS, output, statements, sintassi, commenti | Come si scrive ed esegue JavaScript |
-| 7–9 | Variabili, `let`/`const`, tipi di dato | `var` vs `let`/`const`, primitivi vs oggetti |
-| 10–13 | Operatori, aritmetica, assegnazione, confronto | `=== vs ==`, precedenze, operatori |
-| 14–18 | Condizioni, `switch`, cicli `for`/`while`, `break`/`continue` | Controllo del flusso |
-| 19–22 | Stringhe, metodi, ricerca, template literals | Manipolazione testo, `` `${...}` `` |
-| 23–26 | Numeri, metodi, `Math`, booleani | Calcoli e valori logici |
-| 27–34 | Funzioni, parametri, arrow, closure, callback, HOF, ricorsione, IIFE | Cuore della logica riutilizzabile |
-| 35–41 | Oggetti, metodi, destructuring, spread, `this`, optional chaining, JSON | Strutture dati chiave |
-| 42–47 | Scope, hoisting, strict mode, date e formattazione | Regole del linguaggio e tempo |
+| 001–006 | Introduzione, dove scrivere JS, output, statements, sintassi, commenti | Come si scrive ed esegue JavaScript |
+| 007–009 | Variabili, `let`/`const`, tipi di dato | `var` vs `let`/`const`, primitivi vs oggetti |
+| 010–013 | Operatori, aritmetica, assegnazione, confronto | `===` vs `==`, precedenze |
+| 014–018 | Condizioni, `switch`, cicli `for`/`while`, `break`/`continue` | Controllo del flusso |
+| 019–022 | Stringhe, metodi, ricerca, template literals | Manipolazione del testo |
+| 023–026 | Numeri, metodi, `Math`, booleani | Calcoli e valori logici |
+| 027–034 | Funzioni, parametri, arrow, closure, callback, HOF, ricorsione, IIFE | Il cuore della logica riutilizzabile |
+| 035–041 | Oggetti, metodi, destructuring, spread, `this`, optional chaining, JSON | Strutture dati chiave |
+| 042–047 | Scope, hoisting, strict mode, date e formattazione | Regole del linguaggio e gestione del tempo |
 
 ---
 
-## 🟡 PARTE 2 — Strutture dati e array (file 48–70)
+## 🟡 Parte 2 — Strutture dati e array (048–070)
 
 | File | Argomento | In una riga |
 |------|-----------|-------------|
-| 48–49 | Array e metodi | Creazione e operazioni base |
-| 50–58 | `map`, `filter`, `reduce`, `find`, `sort`, `some`/`every`, `flatMap`, spread, destructuring | I metodi funzionali che userai ogni giorno |
-| 59–64 | `Set`, `Map`, `WeakMap`/`WeakSet`, iterables, generators, `Symbol` | Strutture avanzate e iterazione |
-| 65–70 | Conversione tipi, RegExp, errori, error handling, debugging | Robustezza e strumenti |
+| 048–049 | Array e loro metodi | Creazione e operazioni di base |
+| 050–058 | `map`, `filter`, `reduce`, `find`, `sort`, `some`/`every`, `flatMap`, spread, destructuring | I metodi funzionali di uso quotidiano |
+| 059–064 | `Set`, `Map`, `WeakMap`/`WeakSet`, iterables, generators, `Symbol` | Strutture avanzate e iterazione |
+| 065–070 | Conversione tipi, RegExp, errori, error handling, debugging | Robustezza e strumenti |
 
 ---
 
-## 🔵 PARTE 3 — DOM e Browser (file 71–78)
+## 🔵 Parte 3 — DOM e Browser (071–078)
 
-| File | Argomento |
-|------|-----------|
-| 71–76 | DOM: intro, selezione, manipolazione, creazione elementi, eventi, form |
-| 77–78 | BOM (`window`), timer (`setTimeout`/`setInterval`) |
+> ⚠️ Riguardano il **browser**: API come `document` e `window` non esistono in Node puro.
 
-> ⚠️ Questi file riguardano il **browser**: alcune API (`document`, `window`) non esistono in Node puro.
-
----
-
-## 🔴 PARTE 4 — JavaScript AVANZATO (file 79–114)
-
-Qui si entra nel serio. Dettaglio per file:
-
-### Funzioni e closure di alto livello
-- **79 · ADV Functions** — Currying, partial application, memoization, `compose`/`pipe`. Pattern per pipeline di trasformazione.
-- **80 · ADV Closures** — Variabili private, module pattern, factory configurabili, contatori isolati.
-- **81 · ADV This/Bind** — `call`, `apply`, `bind`; come `this` cambia nei vari contesti (il tranello classico di JS).
-
-### Oggetti, prototipi, classi
-- **82 · ADV Prototypes** — L'ereditarietà *vera* di JS: catena `[[Prototype]]`, `__proto__`, `Object.create`.
-- **83 · ADV Classes** — Sintassi `class`, costruttori, metodi, `static`.
-- **84 · ADV Class Inheritance** — `extends`, `super`, override dei metodi.
-- **85 · ADV Class Private** — Campi privati `#campo`, incapsulamento reale.
-- **98 · ADV Getters/Setters** — Proprietà calcolate, validazione in lettura/scrittura.
-- **99 · ADV Descriptors** — `Object.defineProperty`: `writable`, `enumerable`, `configurable`.
-
-### Asincronia (fondamentale)
-- **86 · ADV Async Promises** — I 3 stati (pending/fulfilled/rejected), `then`/`catch`, `Promise.all`/`race`/`allSettled`.
-- **87 · ADV Async/Await** — Sintassi `async`/`await`, `try/catch` asincrono.
-- **88 · ADV Async Patterns** — Sequenziale vs parallelo, gestione errori, orchestrazione.
-- **89 · ADV Async Iteration** — `for await...of`, async generators.
-- **108 · ADV Event Loop** — 🌟 Call stack, **microtask** (Promise) vs **macrotask** (setTimeout), l'ordine di esecuzione.
-
-### Moduli e organizzazione
-- **90 · ADV Modules** — `import`/`export`, named vs default.
-- **91 · ADV Modules Patterns** — Barrel files, singleton, incapsulamento a modulo.
-
-### Programmazione funzionale e immutabilità
-- **92 · ADV Destructuring Deep** — Nested, default, alias, rest nei parametri.
-- **93 · ADV Spread/Rest Deep** — Copie, merge, argomenti variabili.
-- **94 · ADV Immutability** — Copie invece di mutazioni (base di React/Redux), `Object.freeze`.
-- **95 · ADV FP** — Pure functions, composizione, currying, stile point-free.
-
-### Meta-programmazione
-- **96 · ADV Proxy** — Intercettare operazioni su oggetti (trap `get`/`set`/`has`...).
-- **97 · ADV Reflect** — API companion di Proxy per operazioni di default.
-
-### Performance ed errori pro
-- **109 · ADV Performance** — Misurare, ottimizzare, evitare colli di bottiglia.
-- **110 · ADV Design Patterns** — Pattern creazionali/strutturali idiomatici in JS.
-- **113 · ADV Error Handling Pro** — Custom Error classes (`status`, `code`), pattern **Result/Either**, retry con backoff.
-- **114 · ADV Validation** — Guard functions, type guards, schema validation manuale.
-
-### TypeScript e Web API
-- **111–112 · ADV TS** — Basics e Generics di TypeScript.
-- **100–107 · ADV Web** — TypedArrays, DOM navigation, `fetch`, Storage, AJAX, JSON deep, Canvas.
-- **115 · Examples Practical** — Caso end-to-end: calcolo ore da timbrature, badge, report per reparto.
+| File | Argomento | In una riga |
+|------|-----------|-------------|
+| 071–076 | DOM: intro, selezione, manipolazione, creazione elementi, eventi, form | Interagire con la pagina |
+| 077–078 | BOM (`window`), timer (`setTimeout`/`setInterval`) | Ambiente del browser e temporizzazione |
 
 ---
 
-## ⭐ PARTE 5 — Approfondimenti avanzati recenti (file 116–125)
+## 🔴 Parte 4 — JavaScript avanzato (079–114)
 
-Gli script più recenti, con **casi reali da gestionale** e verificati (girano su Node 24).
+| File | Argomento | In una riga |
+|------|-----------|-------------|
+| 079–081 | Funzioni avanzate, closure, `this`/`bind` | Currying, memoization, module pattern, `call`/`apply`/`bind` |
+| 082–085 | Prototipi, classi, ereditarietà, campi privati | OOP di JavaScript, dalla catena `[[Prototype]]` a `#campo` |
+| 086–089 | Promise, `async`/`await`, pattern async, async iteration | Asincronia: stati, `try/catch`, sequenziale vs parallelo, `for await` |
+| 090–091 | Moduli e pattern di modulo | `import`/`export`, barrel file, singleton |
+| 092–095 | Destructuring/spread avanzati, immutabilità, FP | Copie vs mutazioni, pure function, composizione |
+| 096–097 | Proxy e Reflect | Intercettare le operazioni sugli oggetti (meta-programmazione) |
+| 098–100 | Getter/setter, property descriptor, TypedArray | Proprietà calcolate, `defineProperty`, buffer binari |
+| 101–107 | DOM navigation, `window`, `fetch`, Storage, AJAX, JSON, Canvas | Le Web API del browser |
+| 108–110 | Event loop, performance, design pattern | Microtask vs macrotask, ottimizzazione, pattern idiomatici |
+| 111–112 | TypeScript: basics e generics | Primo assaggio di tipizzazione statica |
+| 113–114 | Error handling professionale, validazione | Custom Error, pattern Result/Either, type guard e schema |
+| 115 | Esempi pratici end-to-end | Caso ERP: ore da timbrature, badge, report per reparto |
 
-### 116 · ADV State Machine 🔧
-Macchina a stati finiti (FSM) per il ciclo di vita di una **richiesta ferie** (`bozza → inviata → approvata/rifiutata → archiviata`).
-**Concetti:** mappa delle transizioni come unica fonte di verità · blocco delle transizioni illegali · closure per incapsulare lo stato · **audit trail immutabile** · dry-run funzionale per validare un percorso senza effetti.
+---
 
-### 117 · ADV Event Emitter 📡
-Pattern **publish/subscribe** costruito da zero (come `events` di Node, `addEventListener` del DOM, Redux, RxJS).
-**Concetti:** `on`/`off`/`once`/`emit` · `on()` ritorna un *unsubscribe* (closure) · un listener che lancia **non blocca gli altri** · `Map<string, Set<fn>>` per evitare duplicati · **disaccoppiamento** produttore/consumatore.
+## ⭐ Parte 5 — Approfondimenti avanzati (116–125)
 
-### 118 · ADV Async Concurrency ⚡
-Controllo della concorrenza async per un **sync di massa** (es. 100 dipendenti verso un server con rate limit).
-**Concetti:** `Promise.all` (tutto-o-niente) vs **`allSettled`** (report completo) · **timeout** con `Promise.race` · **retry con backoff esponenziale** (20→40→80ms) · **pool di concorrenza** (max N richieste in parallelo con "operai").
+Gli script più recenti, ognuno un caso reale da gestionale, verificati su Node 24.
 
-### 119 · ADV Pipeline Functional 🔗
-Pipeline di trasformazione dati in stile funzionale: da timbrature grezze a **report per reparto**.
-**Concetti:** `pipe`/`compose` · **currying** (`filterBy`, `groupBy` preconfigurati) · **pure functions** come mattoncini · immutabilità (spread/map) · `groupBy` con `reduce` · una pipeline è una funzione riusabile su qualsiasi dato.
-
-### 120 · ADV LRU Cache 🗃️
-Cache **Least Recently Used**: quando è piena, sfratta l'elemento usato meno di recente.
-**Concetti:** la `Map` **ricorda l'ordine di inserimento** (base del trucco) · "promuovere" = `delete` + `set` · la prima chiave è sempre la LRU · **memoizzazione** di funzioni costose (query DB) · statistiche `hitRate`.
-
-### 121 · ADV Node Core 🖥️
-I moduli fondamentali di **Node.js**: `fs`, `path`, `process`.
-**Concetti:** `process` (`version`, `platform`, `cwd`, **`argv`** per la CLI, **`env`** per la config) · `path` per percorsi **portabili** (Windows/Linux) · `fs` **sincrono** (blocca → solo per script) vs **`fs/promises`** (non blocca → per i server) · errori con `.code` (`ENOENT`) · codici di uscita (0 = ok).
-
-### 122 · ADV Node Streams 🌊
-**Stream**: elaborare dati a "pezzi" (chunk) a **memoria costante**, anche su file da GB.
-**Concetti:** perché lo streaming batte `readFile` su file enormi · **Buffer** (i byte grezzi, UTF-8) · `readline` + `for await` per leggere **CSV riga per riga** · **Transform** stream (modifica i dati in transito, `objectMode`) · `pipeline()` gestisce errori, chiusura e **backpressure**.
-
-### 123 · ADV Intl Formatting 🌍
-`Intl`: formattazione internazionale **nativa** (niente moment/date-fns).
-**Concetti:** `NumberFormat` per **euro** (`1.234,56 €`), percentuali, unità · `DateTimeFormat` per **date italiane** (7 luglio 2026, formato 24h) · `RelativeTimeFormat` ("ieri", "tra 2 ore") · **`Collator`** per ordinare testo con accenti come un umano · `ListFormat` ("Mario, Anna e Luca") · crea il formatter **una volta** e riusalo.
-
-### 124 · ADV Node Testing ✅
-Testing **nativo** con `node:test` e `node:assert` (zero librerie).
-**Concetti:** `test`/`describe`/`it` · `assert.equal` (usa `===`) vs **`assert.deepEqual`** (confronta il *contenuto*, non l'identità) · **`assert.throws`** per verificare che il codice fallisca quando deve · **`mock.fn`** per sostituire dipendenze e tracciare chiamate · `beforeEach` per stato pulito.
-> Lancialo con: `node --test 124_JS_ADV_Node_Testing.js`
-
-### 125 · ADV AbortController 🛑
-Annullare operazioni asincrone in modo pulito.
-**Concetti:** `AbortController` (telecomando) + `signal` (ricevitore) · l'operazione deve **ascoltare** il signal e liberare le risorse · `AbortError` come errore convenzionale · **`AbortSignal.timeout(ms)`** (auto-abort) · **`AbortSignal.any([...])`** (combina più signal) · pattern **search-as-you-type** (una nuova richiesta annulla la precedente) · stesso meccanismo di `fetch(url, { signal })`.
+| File | Argomento | Cosa mostra |
+|------|-----------|-------------|
+| 116 | **State Machine** | FSM per una richiesta ferie (`bozza → inviata → approvata/rifiutata → archiviata`): transizioni come unica fonte di verità, blocco di quelle illegali, audit trail immutabile |
+| 117 | **Event Emitter** | Pattern publish/subscribe da zero: `on`/`off`/`once`/`emit`, unsubscribe via closure, disaccoppiamento produttore/consumatore |
+| 118 | **Async Concurrency** | Sync di massa con rate limit: `all` vs `allSettled`, timeout con `race`, retry con backoff esponenziale, pool di concorrenza |
+| 119 | **Pipeline Functional** | Da timbrature grezze a report per reparto: `pipe`/`compose`, currying, `groupBy` con `reduce`, immutabilità |
+| 120 | **LRU Cache** | Cache Least Recently Used sfruttando l'ordine di inserimento della `Map`; memoizzazione e `hitRate` |
+| 121 | **Node Core** | Moduli fondamentali: `fs`, `path`, `process` (`argv`, `env`), sincrono vs `fs/promises`, codici errore (`ENOENT`) |
+| 122 | **Node Streams** | Elaborare dati a chunk a memoria costante: Buffer, `readline` su CSV, Transform stream, `pipeline()` e backpressure |
+| 123 | **Intl Formatting** | Formattazione internazionale nativa: euro, date italiane, tempo relativo, `Collator`, `ListFormat` |
+| 124 | **Node Testing** | Testing nativo con `node:test`/`node:assert`: `deepEqual`, `throws`, `mock.fn`, `beforeEach` |
+| 125 | **AbortController** | Annullare operazioni async in modo pulito: `signal`, `AbortSignal.timeout`/`any`, pattern search-as-you-type |
 
 ---
 
 ## 🧭 Percorso consigliato per l'avanzato
 
-Se vuoi consolidare il livello avanzato, un ordine sensato:
-
-1. **Asincronia** → 86 → 87 → 108 (event loop) → 118 (concorrenza) → 125 (abort)
-2. **Funzionale** → 79 → 95 → 119 (pipeline) → 94 (immutabilità)
-3. **OOP e meta** → 82 (prototypes) → 83–85 (classi) → 96–97 (proxy/reflect)
+1. **Asincronia** → 086 → 087 → 108 (event loop) → 118 (concorrenza) → 125 (abort)
+2. **Funzionale** → 079 → 095 → 119 (pipeline) → 094 (immutabilità)
+3. **OOP e meta** → 082 (prototipi) → 083–085 (classi) → 096–097 (proxy/reflect)
 4. **Backend Node** → 121 (core) → 122 (streams) → 123 (Intl) → 124 (testing)
 5. **Architettura** → 116 (state machine) → 117 (event emitter) → 120 (LRU cache) → 113 (error handling)
 
 ---
 
-## 📌 Note
+## 🗂️ Indice completo dei file
 
-- Tutti gli esempi sono **eseguibili** e verificati su **Node.js v24**.
-- Nessuna dipendenza esterna: solo JavaScript e moduli core di Node.
-- Dominio ricorrente: **gestionale/ERP** (dipendenti, timbrature, reparti) per esempi concreti.
+<details>
+<summary>Espandi tutti i file</summary>
+
+| # | File | Parte |
+|---|------|-------|
+| 000 | `000_TESTING.js` | Utility |
+| 001 | `001_JS_Introduction.js` | Fondamenti |
+| 002 | `002_JS_WhereTo.js` | Fondamenti |
+| 003 | `003_JS_Output.js` | Fondamenti |
+| 004 | `004_JS_Statements.js` | Fondamenti |
+| 005 | `005_JS_Syntax.js` | Fondamenti |
+| 006 | `006_JS_Comments.js` | Fondamenti |
+| 007 | `007_JS_Variables.js` | Fondamenti |
+| 008 | `008_JS_LetConst.js` | Fondamenti |
+| 009 | `009_JS_DataTypes.js` | Fondamenti |
+| 010 | `010_JS_Operators.js` | Fondamenti |
+| 011 | `011_JS_Arithmetic.js` | Fondamenti |
+| 012 | `012_JS_Assignment.js` | Fondamenti |
+| 013 | `013_JS_Comparison.js` | Fondamenti |
+| 014 | `014_JS_Conditions.js` | Fondamenti |
+| 015 | `015_JS_Switch.js` | Fondamenti |
+| 016 | `016_JS_Loops_For.js` | Fondamenti |
+| 017 | `017_JS_Loops_While.js` | Fondamenti |
+| 018 | `018_JS_Break_Continue.js` | Fondamenti |
+| 019 | `019_JS_Strings.js` | Fondamenti |
+| 020 | `020_JS_String_Methods.js` | Fondamenti |
+| 021 | `021_JS_String_Search.js` | Fondamenti |
+| 022 | `022_JS_Template_Literals.js` | Fondamenti |
+| 023 | `023_JS_Numbers.js` | Fondamenti |
+| 024 | `024_JS_Number_Methods.js` | Fondamenti |
+| 025 | `025_JS_Math.js` | Fondamenti |
+| 026 | `026_JS_Booleans.js` | Fondamenti |
+| 027 | `027_JS_Functions.js` | Fondamenti |
+| 028 | `028_JS_Function_Params.js` | Fondamenti |
+| 029 | `029_JS_Arrow_Functions.js` | Fondamenti |
+| 030 | `030_JS_Closures.js` | Fondamenti |
+| 031 | `031_JS_Callbacks.js` | Fondamenti |
+| 032 | `032_JS_HigherOrder.js` | Fondamenti |
+| 033 | `033_JS_Recursion.js` | Fondamenti |
+| 034 | `034_JS_IIFE.js` | Fondamenti |
+| 035 | `035_JS_Objects.js` | Fondamenti |
+| 036 | `036_JS_Object_Methods.js` | Fondamenti |
+| 037 | `037_JS_Object_Destructuring.js` | Fondamenti |
+| 038 | `038_JS_Object_Spread.js` | Fondamenti |
+| 039 | `039_JS_This.js` | Fondamenti |
+| 040 | `040_JS_Optional_Chaining.js` | Fondamenti |
+| 041 | `041_JS_JSON.js` | Fondamenti |
+| 042 | `042_JS_Scope.js` | Fondamenti |
+| 043 | `043_JS_Hoisting.js` | Fondamenti |
+| 044 | `044_JS_Strict_Mode.js` | Fondamenti |
+| 045 | `045_JS_Dates.js` | Fondamenti |
+| 046 | `046_JS_Date_Methods.js` | Fondamenti |
+| 047 | `047_JS_Date_Formatting.js` | Fondamenti |
+| 048 | `048_JS_Arrays.js` | Array & strutture dati |
+| 049 | `049_JS_Array_Methods.js` | Array & strutture dati |
+| 050 | `050_JS_Array_Map.js` | Array & strutture dati |
+| 051 | `051_JS_Array_Filter.js` | Array & strutture dati |
+| 052 | `052_JS_Array_Reduce.js` | Array & strutture dati |
+| 053 | `053_JS_Array_Find.js` | Array & strutture dati |
+| 054 | `054_JS_Array_Sort.js` | Array & strutture dati |
+| 055 | `055_JS_Array_Some_Every.js` | Array & strutture dati |
+| 056 | `056_JS_Array_FlatMap.js` | Array & strutture dati |
+| 057 | `057_JS_Array_Spread.js` | Array & strutture dati |
+| 058 | `058_JS_Array_Destructuring.js` | Array & strutture dati |
+| 059 | `059_JS_Sets.js` | Array & strutture dati |
+| 060 | `060_JS_Maps.js` | Array & strutture dati |
+| 061 | `061_JS_WeakMap_WeakSet.js` | Array & strutture dati |
+| 062 | `062_JS_Iterables.js` | Array & strutture dati |
+| 063 | `063_JS_Generators.js` | Array & strutture dati |
+| 064 | `064_JS_Symbols.js` | Array & strutture dati |
+| 065 | `065_JS_TypeConversion.js` | Array & strutture dati |
+| 066 | `066_JS_RegExp.js` | Array & strutture dati |
+| 067 | `067_JS_RegExp_Methods.js` | Array & strutture dati |
+| 068 | `068_JS_Errors.js` | Array & strutture dati |
+| 069 | `069_JS_Error_Handling.js` | Array & strutture dati |
+| 070 | `070_JS_Debugging.js` | Array & strutture dati |
+| 071 | `071_JS_Dom_Intro.js` | DOM & Browser |
+| 072 | `072_JS_Dom_Select.js` | DOM & Browser |
+| 073 | `073_JS_Dom_Manipulation.js` | DOM & Browser |
+| 074 | `074_JS_Dom_Create.js` | DOM & Browser |
+| 075 | `075_JS_Dom_Events.js` | DOM & Browser |
+| 076 | `076_JS_Dom_Forms.js` | DOM & Browser |
+| 077 | `077_JS_BOM_Window.js` | DOM & Browser |
+| 078 | `078_JS_Timers.js` | DOM & Browser |
+| 079 | `079_JS_ADV_Functions.js` | Avanzato |
+| 080 | `080_JS_ADV_Closures.js` | Avanzato |
+| 081 | `081_JS_ADV_This_Bind.js` | Avanzato |
+| 082 | `082_JS_ADV_Prototypes.js` | Avanzato |
+| 083 | `083_JS_ADV_Classes.js` | Avanzato |
+| 084 | `084_JS_ADV_Class_Inheritance.js` | Avanzato |
+| 085 | `085_JS_ADV_Class_Private.js` | Avanzato |
+| 086 | `086_JS_ADV_Async_Promises.js` | Avanzato |
+| 087 | `087_JS_ADV_Async_AwaitAsync.js` | Avanzato |
+| 088 | `088_JS_ADV_Async_Patterns.js` | Avanzato |
+| 089 | `089_JS_ADV_Async_Iteration.js` | Avanzato |
+| 090 | `090_JS_ADV_Modules.js` | Avanzato |
+| 091 | `091_JS_ADV_Modules_Patterns.js` | Avanzato |
+| 092 | `092_JS_ADV_Destructuring_Deep.js` | Avanzato |
+| 093 | `093_JS_ADV_Spread_Rest_Deep.js` | Avanzato |
+| 094 | `094_JS_ADV_Immutability.js` | Avanzato |
+| 095 | `095_JS_ADV_FP.js` | Avanzato |
+| 096 | `096_JS_ADV_Meta_Proxy.js` | Avanzato |
+| 097 | `097_JS_ADV_Meta_Reflect.js` | Avanzato |
+| 098 | `098_JS_ADV_Getters_Setters.js` | Avanzato |
+| 099 | `099_JS_ADV_Descriptors.js` | Avanzato |
+| 100 | `100_JS_ADV_TypedArrays.js` | Avanzato |
+| 101 | `101_JS_ADV_DOM_Navigation.js` | Avanzato |
+| 102 | `102_JS_ADV_Windows.js` | Avanzato |
+| 103 | `103_JS_ADV_WebAPI_Fetch.js` | Avanzato |
+| 104 | `104_JS_ADV_WebAPI_Storage.js` | Avanzato |
+| 105 | `105_JS_ADV_AJAX.js` | Avanzato |
+| 106 | `106_JS_ADV_JSON_Deep.js` | Avanzato |
+| 107 | `107_JS_ADV_Graphics_Canvas.js` | Avanzato |
+| 108 | `108_JS_ADV_EventLoop.js` | Avanzato |
+| 109 | `109_JS_ADV_Performance.js` | Avanzato |
+| 110 | `110_JS_ADV_DesignPatterns.js` | Avanzato |
+| 111 | `111_JS_ADV_TS_Basics.js` | Avanzato |
+| 112 | `112_JS_ADV_TS_Generics.js` | Avanzato |
+| 113 | `113_JS_ADV_ErrorHandling_Pro.js` | Avanzato |
+| 114 | `114_JS_ADV_Validation.js` | Avanzato |
+| 115 | `115_JS_Examples_Practical.js` | Avanzato |
+| 116 | `116_JS_ADV_StateMachine.js` | Approfondimenti |
+| 117 | `117_JS_ADV_EventEmitter.js` | Approfondimenti |
+| 118 | `118_JS_ADV_Async_Concurrency.js` | Approfondimenti |
+| 119 | `119_JS_ADV_Pipeline_Functional.js` | Approfondimenti |
+| 120 | `120_JS_ADV_LRU_Cache.js` | Approfondimenti |
+| 121 | `121_JS_ADV_Node_Core.js` | Approfondimenti |
+| 122 | `122_JS_ADV_Node_Streams.js` | Approfondimenti |
+| 123 | `123_JS_ADV_Intl_Formatting.js` | Approfondimenti |
+| 124 | `124_JS_ADV_Node_Testing.js` | Approfondimenti |
+| 125 | `125_JS_ADV_AbortController.js` | Approfondimenti |
+
